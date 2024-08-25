@@ -678,7 +678,7 @@ G.FUNCS.exhaust_cards_from_highlighted = function(e)
 end
 
 G.FUNCS.can_exhaust = function(e)
-    if (#G.hand.highlighted <= 0) or (G.GAME.current_round.discards_left <= 1)  then
+    if (#G.hand.highlighted <= 0) or (G.GAME.current_round.discards_left <= 0) then
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
     else
