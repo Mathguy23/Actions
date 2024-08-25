@@ -255,6 +255,7 @@ SMODS.Action {
         text = {
             "{C:blue}+1{} Hand, {C:red}-1{} Discard",
             "Costs {C:money}$2{}"
+            "{C:inactive}({C:attention}Discard{C:inactive} action)"
         }
     },
     atlas = "actions",
