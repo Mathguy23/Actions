@@ -268,27 +268,29 @@ SMODS.Action {
 local old_buttons = create_UIBox_buttons
 function create_UIBox_buttons()
     local t = old_buttons()
-    if G and G.GAME and G.GAME.active then
-        local index = 3
-        if G.SETTINGS.play_button_pos ~= 1 then
-            index = 1
+    if not (G and G.GAME and G.GAME.modifiers and G.GAME.modifiers.dungeon) then
+        if G and G.GAME and G.GAME.active then
+            local index = 3
+            if G.SETTINGS.play_button_pos ~= 1 then
+                index = 1
+            end
+            local button = t.nodes[index]
+            button.nodes[1].nodes[1].config.text = localize("b_" .. G.GAME.active)
+            button.config.button = checking[G.GAME.active].use
+            button.config.func = checking[G.GAME.active].can_use
+            button.config.color = G.C[checking[G.GAME.active].colour]
         end
-        local button = t.nodes[index]
-        button.nodes[1].nodes[1].config.text = localize("b_" .. G.GAME.active)
-        button.config.button = checking[G.GAME.active].use
-        button.config.func = checking[G.GAME.active].can_use
-        button.config.color = G.C[checking[G.GAME.active].colour]
-    end
-    if G and G.GAME and G.GAME.passive then
-        local index = 1
-        if G.SETTINGS.play_button_pos ~= 1 then
-            index = 3
+        if G and G.GAME and G.GAME.passive then
+            local index = 1
+            if G.SETTINGS.play_button_pos ~= 1 then
+                index = 3
+            end
+            local button = t.nodes[index]
+            button.nodes[1].nodes[1].config.text = localize("b_" .. G.GAME.passive)
+            button.config.button = checking[G.GAME.passive].use
+            button.config.func = checking[G.GAME.passive].can_use
+            button.config.color = G.C[checking[G.GAME.passive].colour]
         end
-        local button = t.nodes[index]
-        button.nodes[1].nodes[1].config.text = localize("b_" .. G.GAME.passive)
-        button.config.button = checking[G.GAME.passive].use
-        button.config.func = checking[G.GAME.passive].can_use
-        button.config.color = G.C[checking[G.GAME.passive].colour]
     end
     return t
 end
