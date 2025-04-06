@@ -470,7 +470,7 @@ end
 G.FUNCS.fall_cards_from_highlighted = function(e)
     act_custom_decrement = {
         hands = 1,
-        discard = 1
+        discards = 1
     }
     act_fall_action = true
     G.FUNCS.play_cards_from_highlighted(e)
@@ -490,7 +490,7 @@ end
 G.FUNCS.exhaust_cards_from_highlighted = function(e)
     act_custom_decrement = {
         hands = 1,
-        discard = 1
+        discards = 1
     }
     G.GAME.score_deck = true
     G.FUNCS.play_cards_from_highlighted(e)
